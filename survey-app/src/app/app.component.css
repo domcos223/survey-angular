@@ -24,6 +24,19 @@ header {
   transition: 0.4s ease-in-out;
 }
 
+#createIcon {
+  border: solid 1px #fff;
+  color: #fff;
+  border-bottom: 1;
+  padding: 5px 5px 5px 5px;
+  border-radius: 3px;
+}
+
+#createIcon:hover {
+  border: solid 1px red;
+  color: red;
+}
+
 @media only screen and (max-width: 999px) {
   .menu {
     position: fixed;
