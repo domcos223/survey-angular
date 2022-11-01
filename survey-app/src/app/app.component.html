@@ -1,0 +1,28 @@
+<header>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3 col-sm-3 col-3">
+
+          <div class="logo">
+            <img src="assets/img/survey-logo.png" alt="Logo">
+          </div>
+      </div>
+          <div class="col-md-9 col-sm-9 col-9 text-end">
+            <div class="menu_icon" [class.menu_icon_Class]="iconVar" (click)="openMenu()">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+            <div class="menu" [class.menuClass]="menuVar">
+              <ul>
+                <li>Dashboard</li>
+                <li>My Surveys</li>
+                <li>Results</li>
+                <li>Log out</li>
+
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+</header>
