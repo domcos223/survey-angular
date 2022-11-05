@@ -1,0 +1,103 @@
+header {
+  padding: 10px 0;
+  background: #222;
+}
+
+.menu {
+  margin-top: 16px;
+}
+.menu ul {
+  padding: 0;
+  margin: 0;
+
+}
+.menu ul li {
+  list-style-type: none;
+  color: #fff;
+  display: inline-block;
+  font-size: 18px;
+  margin-left: 28px;
+}
+.menu ul li:hover {
+  color: rgb(33, 157, 179);
+  cursor: pointer;
+  transition: 0.4s ease-in-out;
+}
+
+#createIcon {
+  border: solid 1px #fff;
+  color: #fff;
+  border-bottom: 1;
+  padding: 5px 5px 5px 5px;
+  border-radius: 3px;
+}
+
+#createIcon:hover {
+  border: solid 1px red;
+  color: red;
+}
+
+#logoutIcon {
+  border: solid 1px #fff;
+  color: #fff;
+  border-bottom: 1;
+  padding: 5px 5px 5px 5px;
+  border-radius: 3px;
+}
+
+#logoutIcon:hover {
+  border: solid 1px red;
+  color: red;
+}
+
+@media only screen and (max-width: 999px) {
+  .menu {
+    position: fixed;
+    right: -280px;
+    top: 64px;
+    width: 280px;
+    height: 100%;
+    background: #222;
+    transition: 0.4s ease-in-out;
+  }
+
+
+.menu ul li{
+  display: block;
+  text-align: left;
+  margin: 0;
+  padding: 10px 0 10px 26px;
+  border-bottom: 1px solid rgb(78, 75, 75)
+}
+.menu_icon {
+  display: inline-block;
+  position: relative;
+  right: 0;
+  top: 20px;
+}
+.menu_icon span {
+  width: 32px;
+  height: 3px;
+  background: #fff;
+  display: block;
+  transition: 0.2s ease-in-out;
+}
+.menu_icon span:nth-child(2) {
+  margin: 4px 0;
+}
+.menu_icon_Class span:nth-child(2) {
+  display: none;
+}
+.menu_icon_Class span:nth-child(1) {
+  transform: rotate(40deg);
+}
+.menu_icon_Class span:nth-child(3) {
+  transform: rotate(-40deg);
+  margin-top: -3px;
+}
+
+.menuClass {
+  right: 0;
+  transition: 0.4s ease-in-out;
+}
+}

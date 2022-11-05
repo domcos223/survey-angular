@@ -8,13 +8,5 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'survey-app';
   constructor() {}
-
-  menuVar:boolean= false;
-  iconVar:boolean = false;
-  openMenu() {
-    this.menuVar =! this.menuVar;
-    this.iconVar =! this.iconVar;
-  }
-
 }
 

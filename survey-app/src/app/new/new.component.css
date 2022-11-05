@@ -1,0 +1,14 @@
+#survey-holder {
+  display: flex;
+  justify-content: center;
+}
+
+#survey-container {
+  width: fit-content;
+  height: fit-content;
+  align-content: center;
+  margin-top: 25px;
+  padding-top: 25px;
+  display: flex;
+  justify-content: center;
+}
