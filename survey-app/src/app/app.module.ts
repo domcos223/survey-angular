@@ -11,6 +11,7 @@ import { ResultsComponent } from './results/results.component';
 import { NewComponent } from './new/new.component';
 import { QuestionItemComponent } from './question-item/question-item.component';
 import { OptionItemComponent } from './option-item/option-item.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { OptionItemComponent } from './option-item/option-item.component';
     AppRoutingModule,
     NoopAnimationsModule,
     NgbModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

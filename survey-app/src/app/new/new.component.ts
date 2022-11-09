@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Survey } from '../models/survey';
 
 @Component({
   selector: 'app-new',
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NewComponent implements OnInit {
 
-  constructor() { }
+  public survey: Survey;
 
-  ngOnInit(): void {
+  constructor(private router: Router) {
+    this.survey = new Survey("My new survey", "The details, filled later...");
+   }
+
+  ngOnInit() : void {
+  }
+
+  saveForm() {
+    console.log(JSON.stringify(this.survey));
   }
 
 }

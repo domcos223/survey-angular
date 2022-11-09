@@ -1,8 +1,9 @@
 export class Option {
-  id?: number;
-  text?: string;
+  id: string;
+  text: string;
 
-  constructor(text: string) {
+  constructor(id: string, text: string) {
+    this.id = id;
     this.text = text;
   }
 }

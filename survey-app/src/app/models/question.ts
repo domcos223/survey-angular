@@ -1,12 +1,18 @@
 import { Option } from "./option";
 
 export class Question {
-  id?: number;
-  text?: string;
-  options?: Option[];
-  answers?: any;
+  id: string;
+  text: string;
+  options: Option[] = [];
+  answers: any;
 
-  constructor(text: string) {
+  constructor(id: string, text: string) {
+    this.id = id;
     this.text = text;
+  }
+
+  addOption(){
+    let generatedId = this.options.length+1;
+    this.options.push(new Option(this.id+"_"+generatedId, "New option"));
   }
 }
