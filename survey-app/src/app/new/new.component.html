@@ -3,19 +3,19 @@
   <div class="card" id="survey-container">
     <div class="container">
       <h2>
-        <input type="text" placeholder="Survey name" floatingPlaceholder="false"  [(ngModel)]="survey.name" />
+        <input type="text" onfocus="this.value=''" value="survey.name" placeholder="Survey name"  [(ngModel)]="survey.name" />
       </h2>
       <h2>
-        <input type="text" placeholder="Survey details" floatingPlaceholder="false" />
+        <input type="text" onfocus="this.value=''" value="survey.name" placeholder="Survey details" [(ngModel)]="survey.details" />
       </h2>
       <form>
         <div class="card" id="question-card" *ngFor="let question of survey.questions; let i = index">
           <div class="card-content">
             <div class="mb-3" >
-              <input class="col-6" type="text" placeholder="Question {{i+1}}" #name="ngModel" name="Question{{i+1}}" [(ngModel)]="question.text"/>
+              <input class="col-6" type="text" onfocus="this.value=''" value="question.text" placeholder="Question {{i+1}}" #name="ngModel" name="Question{{i+1}}" [(ngModel)]="question.text"/>
             </div>
             <div *ngFor="let option of question.options; let j = index">
-              <input type="text" placeholder="Option {{j+1}}" [(ngModel)]="option.text" #name="ngModel" name="option{{j+1}}"/>
+              <input type="text" onfocus="this.value=''" value="option.text" placeholder="Option {{j+1}}" [(ngModel)]="option.text" #name="ngModel" name="option{{j+1}}"/>
             </div>
             <div>
               <button type="button" class="btn btn-success" md-fab (click)="survey.questions[i].addOption()">Add option</button>

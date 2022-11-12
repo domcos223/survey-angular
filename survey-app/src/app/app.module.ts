@@ -9,8 +9,6 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { MysurveysComponent } from './mysurveys/mysurveys.component';
 import { ResultsComponent } from './results/results.component';
 import { NewComponent } from './new/new.component';
-import { QuestionItemComponent } from './question-item/question-item.component';
-import { OptionItemComponent } from './option-item/option-item.component';
 import { FormsModule } from '@angular/forms';
 
 @NgModule({
@@ -21,8 +19,6 @@ import { FormsModule } from '@angular/forms';
     MysurveysComponent,
     ResultsComponent,
     NewComponent,
-    QuestionItemComponent,
-    OptionItemComponent
   ],
   imports: [
     BrowserModule,
