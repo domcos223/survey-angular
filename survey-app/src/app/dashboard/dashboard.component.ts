@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbTypeaheadWindow } from '@ng-bootstrap/ng-bootstrap/typeahead/typeahead-window';
-import { Survey } from 'survey-angular';
+import { Survey } from '../models/survey';
 
 @Component({
   selector: 'app-dashboard',
@@ -10,12 +10,16 @@ import { Survey } from 'survey-angular';
 export class DashboardComponent implements OnInit {
   surveyDashboard: Survey[];
 
-  constructor() { 
+  constructor() {
      this.surveyDashboard = [];
-     
+
   }
 
   ngOnInit(): void {
+    const items = localStorage.getItem('surveyDashboard');
+    if (items !== null) {
+      this.surveyDashboard = JSON.parse(items);
+    }
   }
 
 }
