@@ -21,12 +21,19 @@ export class NewComponent implements OnInit {
 
     if (storedSurveys !== null) {
       const surveyDashboard = JSON.parse(storedSurveys);
+      return surveyDashboard.length+1;
+    }
+    else
+    {
+      return 1;
     }
   }
 
   saveForm() {
     //console.log(JSON.stringify(this.survey));
     const oldItems = localStorage.getItem('surveyDashboard');
+    const newId = this.getNewId();
+    this.survey.id = newId;
     if (oldItems !== null) {
       const surveyDashboard = JSON.parse(oldItems);
       surveyDashboard.push(this.survey);
