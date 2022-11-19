@@ -3,12 +3,12 @@
   <div class="card" id="survey-container">
     <div class="container">
       <h2>
-        <input id="survey-name" type="text"  placeholder="Survey name"  [(ngModel)]="survey.name" />
+        <input id="survey-name" type="text" [(ngModel)]="survey.name" readonly>
       </h2>
       <h2>
-        <input id="survey-details" type="text"  placeholder="Survey details" [(ngModel)]="survey.details" />
+        <p id="survey-details" type="text"  [(ngModel)]="survey.details"></p>
       </h2>
-      <form>
+
         <div class="card" id="question-card" *ngFor="let question of survey.questions; let i = index">
           <div class="card-content">
             <div class="mb-3" >
@@ -27,9 +27,8 @@
         </div>
         <br>
         <div>
-          <button type="submit" class="btn btn-primary" md-fab (click)="saveForm()">Submit</button>
+          <button type="submit" class="btn btn-primary" md-fab (click)="saveAnswers()">Submit</button>
         </div>
-      </form>
     </div>
   </div>
 </div>

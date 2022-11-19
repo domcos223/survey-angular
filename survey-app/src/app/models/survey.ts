@@ -13,6 +13,6 @@ export class Survey {
 
   addQuestion(){
     let generatedId = (this.questions.length+1).toString();
-    this.questions.push(new Question("question"+generatedId,"New question"));
+    this.questions.push(new Question("question"+generatedId,""));
   }
 }

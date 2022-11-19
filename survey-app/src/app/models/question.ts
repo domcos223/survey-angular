@@ -13,6 +13,6 @@ export class Question {
 
   addOption(){
     let generatedId = this.options.length+1;
-    this.options.push(new Option(this.id+"_"+generatedId, "New option"));
+    this.options.push(new Option(this.id+"_"+generatedId, ""));
   }
 }

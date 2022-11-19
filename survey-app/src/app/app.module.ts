@@ -10,6 +10,8 @@ import { MysurveysComponent } from './mysurveys/mysurveys.component';
 import { ResultsComponent } from './results/results.component';
 import { NewComponent } from './new/new.component';
 import { FormsModule } from '@angular/forms';
+import { FillSurveyComponent } from './fill-survey/fill-survey.component';
+import { ErrorComponent } from './error/error.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +21,8 @@ import { FormsModule } from '@angular/forms';
     MysurveysComponent,
     ResultsComponent,
     NewComponent,
+    FillSurveyComponent,
+    ErrorComponent,
   ],
   imports: [
     BrowserModule,

@@ -11,10 +11,18 @@ export class NewComponent implements OnInit {
   public survey: Survey;
 
   constructor(private router: Router) {
-    this.survey = new Survey('My new survey', 'The details, filled later...');
+    this.survey = new Survey('', '');
   }
 
   ngOnInit(): void {}
+
+  getNewId() {
+    const storedSurveys = localStorage.getItem('surveyDashboard');
+
+    if (storedSurveys !== null) {
+      const surveyDashboard = JSON.parse(storedSurveys);
+    }
+  }
 
   saveForm() {
     //console.log(JSON.stringify(this.survey));
@@ -23,6 +31,7 @@ export class NewComponent implements OnInit {
       const surveyDashboard = JSON.parse(oldItems);
       surveyDashboard.push(this.survey);
       localStorage.setItem('surveyDashboard', JSON.stringify(surveyDashboard));
+
     }
     else {
       const surveyArray = [];
@@ -30,6 +39,7 @@ export class NewComponent implements OnInit {
       localStorage.setItem('surveyDashboard', JSON.stringify(surveyArray));
     }
     console.log(localStorage.getItem);
-    this.router.navigate(['/dashboard']);
+    console.log(this.survey.id);
+    this.router.navigate(['/surveys']);
   }
 }
