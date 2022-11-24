@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Survey } from '../models/survey';
-import { NewSurveyService } from '../shared/new-survey.service';
+import { SurveyService } from '../shared/new-survey.service';
 
 @Component({
   selector: 'app-new',
@@ -12,7 +12,7 @@ import { NewSurveyService } from '../shared/new-survey.service';
 export class NewComponent implements OnInit {
   public survey: Survey;
 
-  constructor(public service: NewSurveyService , private router: Router ) {
+  constructor(public service: SurveyService , private router: Router ) {
     this.survey = new Survey();
   }
 

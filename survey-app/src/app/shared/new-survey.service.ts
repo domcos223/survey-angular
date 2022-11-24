@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
 import { Survey } from '../models/survey';
 import { HttpClient } from '@angular/common/http';
-import { catchError, Observable } from 'rxjs';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
-export class NewSurveyService {
+export class SurveyService {
 
   constructor(private http: HttpClient) { }
 
@@ -17,7 +17,12 @@ export class NewSurveyService {
       return this.http.post(this.baseURL,this.formData)
  }
 
- handleError() {
-  console.log();
+ getSurveys() : Observable<Survey[]> {
+    return this.http.get<Survey[]>(this.baseURL)
+
  }
+
+
+
+
 }
