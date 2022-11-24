@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Survey } from '../models/survey';
+import { NewSurveyService } from '../shared/new-survey.service';
 
 @Component({
   selector: 'app-new',
@@ -10,26 +12,23 @@ import { Survey } from '../models/survey';
 export class NewComponent implements OnInit {
   public survey: Survey;
 
-  constructor(private router: Router) {
-    this.survey = new Survey('', '');
+  constructor(public service: NewSurveyService , private router: Router ) {
+    this.survey = new Survey();
   }
 
   ngOnInit(): void {}
 
-  getNewId() {
-    const storedSurveys = localStorage.getItem('surveyDashboard');
+  onSubmit(form : NgForm) {
+    this.service.postSurvey().subscribe( {
+      complete: () => {
+        this.router.navigate(['/surveys'])},
+      error: error => {
+        console.log(error);
+      }
+    })};
 
-    if (storedSurveys !== null) {
-      const surveyDashboard = JSON.parse(storedSurveys);
-      return surveyDashboard.length+1;
-    }
-    else
-    {
-      return 1;
-    }
   }
-
-  saveForm() {
+  /*saveForm() {
     //console.log(JSON.stringify(this.survey));
     const oldItems = localStorage.getItem('surveyDashboard');
     const newId = this.getNewId();
@@ -48,5 +47,5 @@ export class NewComponent implements OnInit {
     console.log(localStorage.getItem);
     console.log(this.survey.id);
     this.router.navigate(['/surveys']);
-  }
-}
+  }*/
+

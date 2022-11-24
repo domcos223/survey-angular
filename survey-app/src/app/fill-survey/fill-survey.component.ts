@@ -13,7 +13,7 @@ import { Survey } from '../models/survey';
 export class FillSurveyComponent implements OnInit {
   survey: Survey;
   constructor(private router: Router, private route: ActivatedRoute) {
-    this.survey = new Survey("","");
+    this.survey = new Survey();
     this.route.params.subscribe((res) => {
       this.survey.id = res['id'];
     });

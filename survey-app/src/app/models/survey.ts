@@ -1,18 +1,23 @@
 import {Question} from './question';
+import {v4 as uuidv4} from 'uuid';
 
 export class Survey {
-  id?: number;
-  name: string;
-  details: string;
+  id: string = this.generateId(); //tsconfig strictProperty was set to false
+  name: string = "";
+  details: string = "";
   questions: Question[] = [];
 
-  constructor(name: string, details: string) {
-    this.name = name;
-    this.details = details;
+  addQuestion(){
+
+    this.questions.push(new Question(this.genQuestionId(),this.id,""));
+  }
+  genQuestionId() {
+       let generatedId = uuidv4();
+       return generatedId;
   }
 
-  addQuestion(){
-    let generatedId = (this.questions.length+1).toString();
-    this.questions.push(new Question("question"+generatedId,""));
+  generateId() {
+    return this.id = uuidv4();
   }
+
 }

@@ -12,6 +12,7 @@ import { NewComponent } from './new/new.component';
 import { FormsModule } from '@angular/forms';
 import { FillSurveyComponent } from './fill-survey/fill-survey.component';
 import { ErrorComponent } from './error/error.component';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { ErrorComponent } from './error/error.component';
     AppRoutingModule,
     NoopAnimationsModule,
     NgbModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

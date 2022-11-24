@@ -2,32 +2,34 @@
 <div id="survey-holder">
   <div class="card" id="survey-container">
     <div class="container">
+      <form #form ="ngForm" (ngSubmit)="onSubmit(form)" >
       <h2>
-        <input id="survey-name" type="text"  placeholder="Survey name"  [(ngModel)]="survey.name" />
+        <input type="hidden" name="surveyId" [value]="service.formData.id" />
+        <input  class="form-control form-control-lg" id="survey-name" name="surveyName" #surveyName="ngModel" placeholder="Survey name"  [(ngModel)]="service.formData.name" required maxlength="15"/>
       </h2>
       <h2>
-        <input id="survey-details" type="text"  placeholder="Survey details" [(ngModel)]="survey.details" />
+        <input id="survey-details" class="form-control form-control-lg" name="surveyDetails" #surveyDetails="ngModel" placeholder="Survey details" [(ngModel)]="service.formData.details" required />
       </h2>
-      <form>
-        <div class="card" id="question-card" *ngFor="let question of survey.questions; let i = index">
-          <div class="card-content">
+
+        <div class="card" id="question-card" *ngFor="let question of service.formData.questions; let i = index">
+          <div class="form-group">
             <div class="mb-3" >
-              <input class="col-6" type="text"  placeholder="Question {{i+1}}" #name="ngModel" name="Question{{i+1}}" [(ngModel)]="question.text"/>
+              <input class="col-6 form-control"  placeholder="Question {{i+1}}" name="Question{{i+1}}" #Question{{i+1}}="ngModel"  [(ngModel)]="question.text" required/>
             </div>
             <div *ngFor="let option of question.options; let j = index">
-              <input type="text" placeholder="Option {{j+1}}" [(ngModel)]="option.text" #name="ngModel" name="option{{j+1}}"/>
+              <input class="form-control" placeholder="Option {{j+1}}"  #option{{j+1}}="ngModel" name="option{{j+1}}"  [(ngModel)]="option.text" required/>
             </div>
-            <div>
-              <button type="button" class="btn btn-success" md-fab (click)="survey.questions[i].addOption()">Add option</button>
+            <div class="form-control">
+              <button type="button" class="btn btn-success" md-fab (click)="service.formData.questions[i].addOption()">Add option</button>
             </div>
           </div>
         </div>
-        <div>
-          <button type="button" class="btn btn-success" md-fab (click)="survey.addQuestion()">Add question</button>
+        <div class="form-control">
+          <button type="button" class="btn btn-primary" md-fab (click)="service.formData.addQuestion()">Add question</button>
         </div>
         <br>
-        <div>
-          <button type="submit" class="btn btn-primary" md-fab (click)="saveForm()">Submit</button>
+        <div class="form-control">
+          <button type="submit" class="btn btn-success" md-fab>Submit</button>
         </div>
       </form>
     </div>
