@@ -3,6 +3,7 @@ import { Survey } from '../models/survey';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -22,7 +23,14 @@ export class SurveyService {
 
  }
 
+ getSurveyById(id: string) : Observable<Survey> {
+  let geturl = 'https://localhost:7012/api/Surveys/' + id
+  return this.http.get<Survey>(geturl);
+ }
 
+ onSelected(value:string) {
+  this.formData.optiontype = value;
+}
 
 
 }

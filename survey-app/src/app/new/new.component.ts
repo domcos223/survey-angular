@@ -27,6 +27,8 @@ export class NewComponent implements OnInit {
       }
     })};
 
+
+
   }
   /*saveForm() {
     //console.log(JSON.stringify(this.survey));

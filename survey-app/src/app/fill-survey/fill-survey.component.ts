@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Subscription } from 'rxjs';
 import { Survey } from '../models/survey';
+import { Option } from '../models/option';
+import { SurveyService } from '../shared/new-survey.service';
 
 
 
@@ -12,7 +14,7 @@ import { Survey } from '../models/survey';
 })
 export class FillSurveyComponent implements OnInit {
   survey: Survey;
-  constructor(private router: Router, private route: ActivatedRoute) {
+  constructor(private router: Router, private route: ActivatedRoute, public surveyService: SurveyService) {
     this.survey = new Survey();
     this.route.params.subscribe((res) => {
       this.survey.id = res['id'];
@@ -20,22 +22,23 @@ export class FillSurveyComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    const stored_surveys = localStorage.getItem('surveyDashboard');
-    if (stored_surveys !== null) {
-      const surveyDashboard = JSON.parse(stored_surveys);
-      const currentSurvey = surveyDashboard.find(
-        (x: any) => x.id == this.survey.id
-      );
-      if (currentSurvey !== undefined) {
-        this.survey.id = currentSurvey.id;
-        this.survey.name = currentSurvey.name;
-        this.survey.details = currentSurvey.details;
-        this.survey.questions = currentSurvey.questions;
-      }
-    }
+
+      this.surveyService.getSurveyById(this.survey.id)
+   .subscribe(fromDbSurvey => {
+    this.survey = fromDbSurvey as Survey
+    console.log(this.survey);
+   })
+
   }
 
-  saveAnswers() {
+  radioValue = true;
+
+  onRadioClick(option: Option) {
+    console.log('Is checked', this.radioValue);
+    this.radioValue = !this.radioValue;
+  }
+
+  onSaveAnswers(form : NgForm) {
 
   }
 

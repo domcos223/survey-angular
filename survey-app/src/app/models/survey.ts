@@ -6,10 +6,12 @@ export class Survey {
   name: string = "";
   details: string = "";
   questions: Question[] = [];
+  optiontype: string = "1"; //checkbox or radio buttons for options
 
   addQuestion(){
 
     this.questions.push(new Question(this.genQuestionId(),this.id,""));
+
   }
   genQuestionId() {
        let generatedId = uuidv4();
