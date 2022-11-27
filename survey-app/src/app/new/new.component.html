@@ -21,10 +21,10 @@
         <div class="card" id="question-card" *ngFor="let question of service.formData.questions; let i = index">
           <div class="form-group">
             <div class="mb-3">
-              <input class="col-6 form-control"  placeholder="Question {{i+1}}" name="Question{{i+1}}" #Question{{i+1}}="ngModel"  [(ngModel)]="question.text" required/>
+              <input class="col-6 form-control"  placeholder="Question {{i+1}}" id="{{question.id}}" name="{{question.id}}" #Question{{i+1}}="ngModel"  [(ngModel)]="question.text" required/>
             </div>
             <div *ngFor="let option of question.options; let j = index">
-              <input class="form-control" placeholder="Option {{j+1}}"  #option{{j+1}}="ngModel" name="option{{j+1}}"  [(ngModel)]="option.text" required/>
+              <input class="form-control" placeholder="Option {{j+1}}"  #option{{j+1}}="ngModel" name="{{option.id}}"  [(ngModel)]="option.text" required/>
             </div>
             <div class="form-control">
               <button type="button" class="btn btn-success" md-fab (click)="question.addOption()">Add option</button>
@@ -35,7 +35,7 @@
           <button type="button" class="btn btn-primary" md-fab (click)="service.formData.addQuestion()">Add question</button>
         </div>
         <br>
-        <div class="form-control">
+        <div>
           <button type="submit" class="btn btn-success" md-fab>Submit</button>
         </div>
       </form>

@@ -9,7 +9,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { MysurveysComponent } from './mysurveys/mysurveys.component';
 import { ResultsComponent } from './results/results.component';
 import { NewComponent } from './new/new.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FillSurveyComponent } from './fill-survey/fill-survey.component';
 import { ErrorComponent } from './error/error.component';
 import { HttpClientModule } from '@angular/common/http';
@@ -32,7 +32,8 @@ import { HttpClientModule } from '@angular/common/http';
     NoopAnimationsModule,
     NgbModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

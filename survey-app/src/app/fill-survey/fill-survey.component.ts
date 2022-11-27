@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { FormControl, FormGroup, NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Survey } from '../models/survey';
-import { Option } from '../models/option';
 import { SurveyService } from '../shared/new-survey.service';
 
 
@@ -13,6 +12,13 @@ import { SurveyService } from '../shared/new-survey.service';
   styleUrls: ['./fill-survey.component.css']
 })
 export class FillSurveyComponent implements OnInit {
+  surveyForm = new FormGroup({
+    question : new FormGroup({
+      option : new FormControl('')
+    })
+})
+
+
   survey: Survey;
   constructor(private router: Router, private route: ActivatedRoute, public surveyService: SurveyService) {
     this.survey = new Survey();
@@ -31,11 +37,12 @@ export class FillSurveyComponent implements OnInit {
 
   }
 
-  radioValue = true;
 
-  onRadioClick(option: Option) {
-    console.log('Is checked', this.radioValue);
-    this.radioValue = !this.radioValue;
+
+  chooseOption(e: any) {
+    //var radioValue = true;
+    console.log('Is checked', e);
+    //radioValue = !radioValue;
   }
 
   onSaveAnswers(form : NgForm) {
