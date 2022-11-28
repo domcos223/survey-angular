@@ -1,0 +1,26 @@
+#survey-holder {
+  display: flex;
+  justify-content: center;
+}
+
+#survey-container {
+  width: 1000px;
+  height: fit-content;
+  align-content: center;
+  margin-top: 25px;
+  padding-top: 25px;
+  display: flex;
+  justify-content: center;
+}
+
+#question-card {
+  padding: 5px 5px 5px 5px;
+}
+
+#survey-name {
+  width: 700px;
+}
+
+#survey-details {
+  width: 700px;
+}

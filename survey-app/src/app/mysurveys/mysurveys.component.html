@@ -1,0 +1,21 @@
+<app-header></app-header>
+  <div class="container">
+    <table class="table mt-2">
+        <thead>
+            <tr>
+                <th scope="col">Survey name</th>
+                <th scope="col">Details</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let survey of surveyDashboard">
+                <td>{{survey.name}}</td>
+                <td>{{survey.details}}</td>
+                <td>
+                    <button class="btn btn-primary mx-3" >Send Email</button>
+                    <button class="btn btn-primary mx-3" >Delete</button>
+                </td>
+            </tr>
+        </tbody>
+      </table>
+</div>

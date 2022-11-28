@@ -1,0 +1,13 @@
+.card {
+  display: inline-block;
+  width: 200px;
+
+}
+
+.card-title {
+ height: 100px;
+ margin: 5px 5px 5px 5px;
+}
+.card-text {
+  margin: 5px 5px 5px 5px;
+}
