@@ -14,8 +14,8 @@
       <h2>
         <select id="option-type" #optiontype (change)="service.onSelected(optiontype.value)" class="form-select" aria-label="Choose option type" name="optionType" required >
           <option value="" disabled selected hidden>Choose an option type</option>
-          <option value="1">Checkbox</option>
-          <option value="2">Radio buttons</option>
+          <option value="1">Multiple choice</option>
+          <option value="2">One choice only</option>
         </select>
       </h2>
         <div class="card" id="question-card" *ngFor="let question of service.formData.questions; let i = index">
@@ -24,7 +24,7 @@
               <input class="col-6 form-control"  placeholder="Question {{i+1}}" id="{{question.id}}" name="{{question.id}}" #Question{{i+1}}="ngModel"  [(ngModel)]="question.text" required/>
             </div>
             <div *ngFor="let option of question.options; let j = index">
-              <input class="form-control" placeholder="Option {{j+1}}"  #option{{j+1}}="ngModel" name="{{option.id}}"  [(ngModel)]="option.text" required/>
+              <input class="form-control" placeholder="Option {{j+1}}"  #option{{j+1}}="ngModel" name="{{option.id}}"  [(ngModel)]="option.text"  required/>
             </div>
             <div class="form-control">
               <button type="button" class="btn btn-success" md-fab (click)="question.addOption()">Add option</button>

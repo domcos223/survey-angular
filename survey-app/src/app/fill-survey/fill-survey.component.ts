@@ -39,12 +39,6 @@ export class FillSurveyComponent implements OnInit {
 
 
 
-  chooseOption(e: any) {
-    //var radioValue = true;
-    console.log('Is checked', e);
-    //radioValue = !radioValue;
-  }
-
   onSaveAnswers(form : NgForm) {
 
   }

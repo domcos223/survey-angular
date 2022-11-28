@@ -15,6 +15,7 @@ export class SurveyService {
   readonly baseURL = 'https://localhost:7012/api/Surveys'
 
   postSurvey()  {
+    console.log(this.formData);
       return this.http.post(this.baseURL,this.formData)
  }
 
@@ -29,7 +30,7 @@ export class SurveyService {
  }
 
  onSelected(value:string) {
-  this.formData.optiontype = value;
+  this.formData.optionType = value;
 }
 
 

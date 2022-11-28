@@ -6,7 +6,7 @@ export class Survey {
   name: string = "";
   details: string = "";
   questions: Question[] = [];
-  optiontype: string = "1"; //checkbox or radio buttons for options
+  optionType: string = ""; //checkbox or radio buttons for options
 
   addQuestion(){
 
