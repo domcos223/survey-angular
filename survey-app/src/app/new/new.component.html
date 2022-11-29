@@ -12,7 +12,7 @@
         <input id="survey-details" class="form-control form-control-lg" name="surveyDetails" #surveyDetails="ngModel" placeholder="Survey details" [(ngModel)]="service.formData.details" required />
       </h2>
       <h2>
-        <select id="option-type" #optiontype (change)="service.onSelected(optiontype.value)" class="form-select" aria-label="Choose option type" name="optionType" required >
+        <select id="option-type" #optiontype (change)="service.onTypeSelected(optiontype.value)" class="form-select" aria-label="Choose option type" name="optionType" required >
           <option value="" disabled selected hidden>Choose an option type</option>
           <option value="1">Multiple choice</option>
           <option value="2">One choice only</option>

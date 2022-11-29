@@ -15,13 +15,11 @@ export class SurveyService {
   readonly baseURL = 'https://localhost:7012/api/Surveys'
 
   postSurvey()  {
-    console.log(this.formData);
       return this.http.post(this.baseURL,this.formData)
  }
 
  getSurveys() : Observable<Survey[]> {
     return this.http.get<Survey[]>(this.baseURL)
-
  }
 
  getSurveyById(id: string) : Observable<Survey> {
@@ -29,9 +27,13 @@ export class SurveyService {
   return this.http.get<Survey>(geturl);
  }
 
- onSelected(value:string) {
+ onTypeSelected(value:string) {
   this.formData.optionType = value;
 }
 
+putAnswersSurvey(id: string, filledSurveyData : Survey) : Observable<Survey> {
+  let geturl = 'https://localhost:7012/api/Surveys/' + id
+  return this.http.put<Survey>(geturl, filledSurveyData)
+}
 
 }

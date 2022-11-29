@@ -12,15 +12,9 @@ import { SurveyService } from '../shared/new-survey.service';
   styleUrls: ['./fill-survey.component.css']
 })
 export class FillSurveyComponent implements OnInit {
-  surveyForm = new FormGroup({
-    question : new FormGroup({
-      option : new FormControl('')
-    })
-})
-
 
   survey: Survey;
-  constructor(private router: Router, private route: ActivatedRoute, public surveyService: SurveyService) {
+  constructor(private router: Router, private route: ActivatedRoute, public service: SurveyService) {
     this.survey = new Survey();
     this.route.params.subscribe((res) => {
       this.survey.id = res['id'];
@@ -29,18 +23,33 @@ export class FillSurveyComponent implements OnInit {
 
   ngOnInit(): void {
 
-      this.surveyService.getSurveyById(this.survey.id)
+      this.service.getSurveyById(this.survey.id)
    .subscribe(fromDbSurvey => {
     this.survey = fromDbSurvey as Survey
     console.log(this.survey);
    })
-
   }
 
+  onSelectedOption(option : any) {
+    if (option.isPicked == true) {
+      option.isPicked = true;
+    }
+    else
+    {
+      option.isPicked = false;
+    }
+    //if true add 1 to option.answered
+    //if false stay default
 
+ }
 
   onSaveAnswers(form : NgForm) {
-
-  }
+    this.service.putAnswersSurvey(this.survey.id, this.survey).subscribe( {
+      complete: () => {
+        this.router.navigate(['/surveys'])},
+      error: error => {
+        console.log(error);
+      }
+    })};
 
 }

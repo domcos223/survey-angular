@@ -25,8 +25,9 @@
                 name="{{option.questionId}}"
                 class="form-check-input"
                 id="{{option.id}}"
+                [(ngModel)]="option.isPicked"
                 [value]="option"
-                [(ngModel)]="option.id"
+                (change)="onSelectedOption(option)"
                 required
               />
               <input
@@ -36,8 +37,9 @@
               class="form-check-input"
               id="{{option.id}}"
               [value]="option"
-              [(ngModel)]="option.id"
+              [(ngModel)]="option.isPicked"
               [ngModel]="false"
+              (change)="onSelectedOption(option)"
               required
             />
               <label class="form-check-label" for="{{ option.id }}">
