@@ -10,10 +10,12 @@
         <tbody>
             <tr *ngFor="let survey of surveyDashboard">
                 <td>{{survey.name}}</td>
-                <td>{{survey.details}}</td>
-                <td>
+                <td id="details_col">{{survey.details}}</td>
+                <td id="buttons_col">
                     <button class="btn btn-primary mx-3" >Send Email</button>
-                    <button class="btn btn-primary mx-3" >Delete</button>
+                    <button class="btn btn-info mx-3" >Results</button>
+                    <button class="btn btn-danger mx-3" (click)="onDelete(survey.name, survey.id)" >Delete</button>
+
                 </td>
             </tr>
         </tbody>
