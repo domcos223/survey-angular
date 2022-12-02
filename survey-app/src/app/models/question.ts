@@ -1,4 +1,3 @@
-import { Survey } from "survey-angular";
 import { Option } from "./option";
 import {v4 as uuidv4} from 'uuid';
 
@@ -7,7 +6,6 @@ export class Question {
   text: string;
   surveyId: string;
   options: Option[] = [];
-  answers: any;
 
   constructor(id: string, surveyId: string, text: string) {
     this.id = id;
@@ -17,7 +15,7 @@ export class Question {
 
   addOption(){
 
-    this.options.push(new Option(this.genOptionId(),this.id,""));
+    this.options.push(new Option(this.genOptionId(),this.id,"",false,0));
   }
 
   genOptionId() {

@@ -25,9 +25,7 @@
                 name="{{option.questionId}}"
                 class="form-check-input"
                 id="{{option.id}}"
-                [value]="option"
-                [(ngModel)]="option.id"
-                required
+                (click)="onSelectedOption(question.options, option.id)"
               />
               <input
               *ngSwitchCase="1"
@@ -36,7 +34,7 @@
               class="form-check-input"
               id="{{option.id}}"
               [value]="option"
-              [(ngModel)]="option.id"
+              [(ngModel)]="option.isPicked"
               [ngModel]="false"
               required
             />
@@ -54,3 +52,7 @@
     </div>
   </div>
 </div>
+
+<script>
+
+</script>
