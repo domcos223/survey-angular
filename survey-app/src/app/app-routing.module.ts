@@ -15,7 +15,7 @@ const routes: Routes = [
   {path: 'new', component: NewComponent},
   {path: '', children: [
     {path: 'fill/:id', component: FillSurveyComponent },
-
+    {path: 'results/:id', component: ResultsComponent},
   ]},
 
 ];

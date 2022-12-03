@@ -38,7 +38,7 @@ putAnswersSurvey(id: string, filledSurveyData : Survey) : Observable<Survey> {
 
 deleteSurvey(id: string) {
   let url = 'https://localhost:7012/api/Surveys/' + id
-  return this.http.delete<Survey>(url)
+  return this.http.delete<Survey>(url);
 }
 
 }

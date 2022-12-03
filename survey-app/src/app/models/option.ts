@@ -12,4 +12,5 @@ export class Option {
     this.isPicked = isPicked;
     this.answered = answered;
   }
+
 }

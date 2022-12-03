@@ -6,11 +6,13 @@ export class Question {
   text: string;
   surveyId: string;
   options: Option[] = [];
+  mostAnsweredOp: string;
 
-  constructor(id: string, surveyId: string, text: string) {
+  constructor(id: string, surveyId: string, text: string, mostAnsweredOp: string) {
     this.id = id;
     this.surveyId = surveyId;
     this.text = text;
+    this.mostAnsweredOp = mostAnsweredOp;
   }
 
   addOption(){
