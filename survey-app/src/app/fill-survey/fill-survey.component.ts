@@ -12,7 +12,6 @@ import { SurveyService } from '../shared/new-survey.service';
 })
 export class FillSurveyComponent implements OnInit {
   survey: Survey;
-  selectedValue = '';
   constructor(
     private router: Router,
     private route: ActivatedRoute,

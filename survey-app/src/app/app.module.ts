@@ -13,6 +13,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FillSurveyComponent } from './fill-survey/fill-survey.component';
 import { ErrorComponent } from './error/error.component';
 import { HttpClientModule } from '@angular/common/http';
+import { EmailComponent } from './email/email.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { HttpClientModule } from '@angular/common/http';
     NewComponent,
     FillSurveyComponent,
     ErrorComponent,
+    EmailComponent,
   ],
   imports: [
     BrowserModule,

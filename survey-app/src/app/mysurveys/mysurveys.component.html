@@ -12,7 +12,7 @@
                 <td>{{survey.name}}</td>
                 <td id="details_col">{{survey.details}}</td>
                 <td id="buttons_col">
-                    <button class="btn btn-primary mx-3" >Send Email</button>
+                    <button class="btn btn-primary mx-3" routerLink="/email/{{survey.id}}">Send Email</button>
                     <button class="btn btn-info mx-3" routerLink="/results/{{survey.id}}">Results</button>
                     <button class="btn btn-danger mx-3" (click)="onDelete(survey.name, survey.id)" >Delete</button>
 

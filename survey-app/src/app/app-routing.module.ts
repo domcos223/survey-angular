@@ -6,6 +6,7 @@ import { MysurveysComponent } from './mysurveys/mysurveys.component';
 import { NewComponent } from './new/new.component';
 import { ResultsComponent } from './results/results.component';
 import { ErrorComponent } from './error/error.component';
+import { EmailComponent } from './email/email.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'surveys', pathMatch: "full"},
@@ -16,6 +17,7 @@ const routes: Routes = [
   {path: '', children: [
     {path: 'fill/:id', component: FillSurveyComponent },
     {path: 'results/:id', component: ResultsComponent},
+    {path: 'email/:id', component: EmailComponent},
   ]},
 
 ];

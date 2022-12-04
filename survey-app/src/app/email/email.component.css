@@ -1,0 +1,14 @@
+#emailContainer {
+  width: 900px;
+  padding-bottom: 20px;
+  padding-top: 20px;
+  margin-top: 30px;
+}
+
+#title {
+  margin-bottom: 15px;
+}
+
+#sendButton {
+  margin-top: 20px;
+}
