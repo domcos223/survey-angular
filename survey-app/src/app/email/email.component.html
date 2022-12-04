@@ -1,0 +1,21 @@
+<app-header></app-header>
+<div id="emailContainer" class="container card">
+  <h2 id="title">Invite others to fill your survey!</h2>
+  <form #form ="ngForm" (ngSubmit)="submitForm()">
+    <div class="field">
+      <label>Email</label>
+      <input id="email" class="form-control" type="text" name="email" [(ngModel)]="this.email"/>
+    </div>
+    <div class="field">
+      <label>Subject</label>
+      <input class="form-control" type="text" name="subject" [(ngModel)]="service.formData.subject"/>
+    </div>
+    <div class="field">
+      <label>Your Message</label>
+      <textarea class="form-control" type="text" name="content" [(ngModel)]="service.formData.content"></textarea>
+    </div>
+    <div>
+      <button id="sendButton" type="submit" class="btn btn-success">Send</button>
+    </div>
+  </form>
+</div>

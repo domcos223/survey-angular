@@ -10,7 +10,7 @@ export class Survey {
 
   addQuestion(){
 
-    this.questions.push(new Question(this.genQuestionId(),this.id,""));
+    this.questions.push(new Question(this.genQuestionId(),this.id,"",""));
 
   }
   genQuestionId() {

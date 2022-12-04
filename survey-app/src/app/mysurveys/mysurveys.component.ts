@@ -19,4 +19,17 @@ export class MysurveysComponent implements OnInit {
     })
   }
 
+  onDelete(name: string, id: string) {
+
+    var result = confirm("Are you sure you want to delete this survey?\n" + name);
+    if (result) {
+        this.surveyService.deleteSurvey(id)
+        .subscribe(surveys => {
+          this.surveyService.getSurveys().subscribe(surveys => {
+            this.surveyDashboard = surveys as Survey[]
+          })
+        });
+    }
+  }
+
 }

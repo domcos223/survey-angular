@@ -12,7 +12,6 @@ import { SurveyService } from '../shared/new-survey.service';
 })
 export class FillSurveyComponent implements OnInit {
   survey: Survey;
-  selectedValue = '';
   constructor(
     private router: Router,
     private route: ActivatedRoute,
@@ -27,7 +26,6 @@ export class FillSurveyComponent implements OnInit {
   ngOnInit(): void {
     this.service.getSurveyById(this.survey.id).subscribe((fromDbSurvey) => {
       this.survey = fromDbSurvey as Survey;
-      console.log(this.survey);
     });
   }
 
