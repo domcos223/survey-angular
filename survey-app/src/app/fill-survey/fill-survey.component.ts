@@ -43,9 +43,10 @@ export class FillSurveyComponent implements OnInit {
     this.service.putAnswersSurvey(this.survey.id, this.survey).subscribe({
       complete: () => {
         this.router.navigate(['/surveys']);
+        window.alert("Your answers were successfully submitted.")
       },
       error: (error) => {
-        console.log(error);
+       window.alert(error);
       },
     });
   }

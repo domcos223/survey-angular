@@ -42,12 +42,12 @@
               <input class="form-control" placeholder="Option {{j+1}}"  #option{{j+1}}="ngModel" name="{{option.id}}"  [(ngModel)]="option.text"  required/>
             </div>
             <div>
-              <button type="button" class="btn btn-success" (click)="question.addOption()">Add option</button>
+              <button id="addOptBtn" type="button" class="btn btn-success" (click)="question.addOption()">Add option</button>
             </div>
           </div>
         </div>
         <span>
-          <button id="qbutton" type="button" class="btn btn-primary" (click)="service.formData.addQuestion()">Add question</button>
+          <button id="addQBtn" type="button" class="btn btn-primary" (click)="service.formData.addQuestion()">Add question</button>
         </span>
         <div
         id="questionsError"
@@ -58,11 +58,17 @@
         <br>
           <button
           id="savebtn"
+          #saveBtn
           type="submit"
           class="btn btn-success"
           [disabled]="service.formData.hasQuestion == false || form.invalid"
           >Submit</button>
         </div>
+        <div
+        id="submitError"
+        class="help is-error"
+        *ngIf="saveBtn.disabled == true"
+      >*Make sure you filled all of the fields in the form.</div>
       </form>
     </div>
   </div>
