@@ -21,7 +21,6 @@ export class ResultsComponent implements OnInit {
   ngOnInit(): void {
     this.service.getSurveyById(this.survey.id).subscribe((fromDbSurvey) => {
       this.survey = fromDbSurvey as Survey;
-      console.log(this.survey);
     });
   }
 

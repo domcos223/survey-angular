@@ -7,10 +7,12 @@ export class Survey {
   details: string = "";
   questions: Question[] = [];
   optionType: string = ""; //checkbox or radio buttons for options
+  hasQuestion: boolean = false;
 
   addQuestion(){
 
     this.questions.push(new Question(this.genQuestionId(),this.id,"",""));
+    this.hasQuestion = true;
 
   }
   genQuestionId() {

@@ -24,3 +24,25 @@
 #survey-details {
   width: 700px;
 }
+
+#surveyLabel {
+  margin-bottom: 20px;
+}
+
+#nameError {
+  color:red;
+  margin-bottom: 10px;
+}
+#detailsError {
+  color:red;
+  margin-bottom: 10px;
+}
+
+#selectError {
+  color: red;
+  margin-bottom: 10px;
+}
+
+#savebtn {
+  margin-bottom : 10px;
+}
