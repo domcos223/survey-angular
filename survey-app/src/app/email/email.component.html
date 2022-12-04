@@ -4,15 +4,15 @@
   <form #form ="ngForm" (ngSubmit)="submitForm()">
     <div class="field">
       <label>Email</label>
-      <input class="form-control" type="text" name="email"/>
+      <input id="email" class="form-control" type="text" name="email" [(ngModel)]="this.email"/>
     </div>
     <div class="field">
       <label>Subject</label>
-      <input class="form-control" type="text" name="subject"/>
+      <input class="form-control" type="text" name="subject" [(ngModel)]="service.formData.subject"/>
     </div>
     <div class="field">
       <label>Your Message</label>
-      <textarea class="form-control" type="text" name="content"></textarea>
+      <textarea class="form-control" type="text" name="content" [(ngModel)]="service.formData.content"></textarea>
     </div>
     <div>
       <button id="sendButton" type="submit" class="btn btn-success">Send</button>

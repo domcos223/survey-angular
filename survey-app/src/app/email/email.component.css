@@ -12,3 +12,7 @@
 #sendButton {
   margin-top: 20px;
 }
+
+textarea {
+  height: 280px;
+}
