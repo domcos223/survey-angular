@@ -26,11 +26,17 @@ export class FillSurveyComponent implements OnInit {
   ngOnInit(): void {
     this.service.getSurveyById(this.survey.id).subscribe((fromDbSurvey) => {
       this.survey = fromDbSurvey as Survey;
+      if (this.survey) {
+      for (let q of this.survey.questions)
+      {
+      q.options[0].isPicked = true;
+      }
+    }
     });
   }
 
-  onSelectedOption(options: any, optionid: any) {
-    options.forEach((item: Option) => {
+  onSelectedOption(options: Option[], optionid: string) { //sets isPicked value to true only for the clicked button
+    options.forEach(item => {
       if (item.id != optionid) {
         item.isPicked = false;
       } else {

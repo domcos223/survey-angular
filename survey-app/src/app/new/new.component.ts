@@ -28,17 +28,6 @@ export class NewComponent implements OnInit {
       }
     })};
 
-
-    optionCount() {
-        const questions = Array.from(this.service.formData.questions)
-        console.log(questions);
-        questions.forEach(q => {
-          console.log(q.options.length);
-          if (q.options.length <= 1) {
-            this.faultyQuestion = true;
-          }
-        })
-
 }
-}
+
 

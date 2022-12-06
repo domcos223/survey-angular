@@ -25,6 +25,7 @@
                 name="{{option.questionId}}"
                 class="form-check-input"
                 id="{{option.id}}"
+                [checked] = "option.isPicked === true"
                 (click)="onSelectedOption(question.options, option.id)"
                 required
               />
