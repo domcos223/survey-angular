@@ -16,3 +16,15 @@
 textarea {
   height: 280px;
 }
+
+#emailError {
+    color: red;
+}
+
+#subjectError {
+  color: red;
+}
+
+#messageError {
+  color: red
+}

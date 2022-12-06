@@ -18,6 +18,7 @@ export class Question {
   addOption(){
 
     this.options.push(new Option(this.genOptionId(),this.id,"",false,0));
+
   }
 
   genOptionId() {

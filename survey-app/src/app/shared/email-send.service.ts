@@ -15,7 +15,6 @@ export class EmailSendService {
   readonly baseURL = 'https://localhost:7012/api/Email'
 
   sendEmail()  {
-    console.log(this.formData);
     return this.http.post(this.baseURL, this.formData);
   }
 }

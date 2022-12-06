@@ -35,6 +35,7 @@ export class EmailComponent implements OnInit {
     this.service.formData.emails.push(this.email);
     this.service.sendEmail().subscribe( {
       complete: () => {
+        window.alert("Your message was successfully sent to the following address: \n" + this.email);
         this.router.navigate(['/mysurveys'])},
       error: error => {
         console.log(error);

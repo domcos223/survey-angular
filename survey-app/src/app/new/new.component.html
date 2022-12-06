@@ -5,39 +5,71 @@
       <form #form ="ngForm" (ngSubmit)="onSubmit(form)" >
       <h2>
         <input type="hidden" name="surveyId" [value]="service.formData.id" />
-        <label>Survey Name</label>
-        <input  class="form-control form-control-lg" id="survey-name" name="surveyName" #surveyName="ngModel" placeholder="Survey name"  [(ngModel)]="service.formData.name" required maxlength="15"/>
+        <label id="surveyLabel">Build your own survey! </label>
+        <input  class="form-control form-control-lg" id="survey-name" name="surveyName" #surveyName="ngModel" placeholder="Survey name"  [(ngModel)]="service.formData.name" required maxlength="50"/>
       </h2>
+      <div
+      id="nameError"
+      class="help is-error"
+      *ngIf="surveyName.invalid && surveyName.touched"
+    >*Please provide a name for your survey.</div>
       <h2>
-        <input id="survey-details" class="form-control form-control-lg" name="surveyDetails" #surveyDetails="ngModel" placeholder="Survey details" [(ngModel)]="service.formData.details" required />
+        <textarea id="survey-details" class="form-control form-control-lg" name="surveyDetails" #surveyDetails="ngModel" placeholder="Survey details" [(ngModel)]="service.formData.details" required ></textarea>
       </h2>
+      <div
+      id="detailsError"
+      class="help is-error"
+      *ngIf="surveyDetails.invalid && surveyDetails.touched"
+    >*Please provide details for your survey.</div>
       <h2>
-        <select id="option-type" #optiontype (change)="service.onTypeSelected(optiontype.value)" class="form-select" aria-label="Choose option type" name="optionType" required >
+        <select id="option-type" #optiontype="ngModel" (change)="service.onTypeSelected(optiontype.value)" class="form-select" [(ngModel)]="service.formData.optionType" aria-label="Choose option type" name="optionType" required >
           <option value="" disabled selected hidden>Choose an option type</option>
           <option value="1">Multiple choice</option>
           <option value="2">One choice only</option>
         </select>
       </h2>
+      <div
+      id="selectError"
+      class="help is-error"
+      *ngIf="optiontype.invalid && optiontype.touched"
+    >*Please choose an option type.</div>
         <div class="card" id="question-card" *ngFor="let question of service.formData.questions; let i = index">
           <div class="form-group">
             <div class="mb-3">
-              <input class="col-6 form-control"  placeholder="Question {{i+1}}" id="{{question.id}}" name="{{question.id}}" #Question{{i+1}}="ngModel"  [(ngModel)]="question.text" required/>
+              <input class="col-6 form-control"  placeholder="Question {{i+1}}" id="{{question.id}}" name="{{question.id}}" #Question{{i+1}}="ngModel"  [(ngModel)]="question.text"
+              required/>
             </div>
             <div *ngFor="let option of question.options; let j = index">
-              <input class="form-control" placeholder="Option {{j+1}}"  #option{{j+1}}="ngModel" name="{{option.id}}"  [(ngModel)]="option.text"  required/>
+              <input class="form-control" placeholder="Option {{j+1}}"  #option{{j+1}}="ngModel" name="{{option.id}}"  [(ngModel)]="option.text" required/>
             </div>
-            <div class="form-control">
-              <button type="button" class="btn btn-success" md-fab (click)="question.addOption()">Add option</button>
+            <div>
+              <button id="addOptBtn" type="button" class="btn btn-success" (click)="question.addOption()">Add option</button>
             </div>
           </div>
         </div>
-        <div class="form-control">
-          <button type="button" class="btn btn-primary" md-fab (click)="service.formData.addQuestion()">Add question</button>
+        <span>
+          <button id="addQBtn" type="button" class="btn btn-primary" (click)="service.formData.addQuestion()">Add question</button>
+        </span>
+        <div
+        id="questionsError"
+        class="help is-error"
+        *ngIf="service.formData.hasQuestion == false"
+      >*Click the buttons to add your questions & answers!</div>
+          <div>
+          <br>
+          <button
+          id="savebtn"
+          #saveBtn
+          type="submit"
+          class="btn btn-success"
+          [disabled]="service.formData.hasQuestion == false || form.invalid || service.formData.isValid() == false"
+          >Submit</button>
         </div>
-        <br>
-        <div>
-          <button type="submit" class="btn btn-success" md-fab>Submit</button>
-        </div>
+        <div
+        id="submitError"
+        class="help is-error"
+        *ngIf="saveBtn.disabled == true"
+      >*Make sure you filled all of the fields in the form.</div>
       </form>
     </div>
   </div>

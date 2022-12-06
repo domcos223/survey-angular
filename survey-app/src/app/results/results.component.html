@@ -6,6 +6,6 @@
       <h4>{{ question.text }}</h4>
     </div>
     <p *ngFor="let option of question.options,  let j = index">{{option.text}}: {{option.answered}}</p>
-    <p id="answer">The most picked answer(s) : {{question.mostAnsweredOp}}</p>
+    <p id="answer">The most picked answer: {{question.mostAnsweredOp}}</p>
   </div>
 </div>
