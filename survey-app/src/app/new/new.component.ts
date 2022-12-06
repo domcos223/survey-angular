@@ -11,6 +11,7 @@ import { SurveyService } from '../shared/new-survey.service';
 })
 export class NewComponent implements OnInit {
   public survey: Survey;
+  public faultyQuestion: boolean = false;
 
   constructor(public service: SurveyService , private router: Router ) {
     this.survey = new Survey();
@@ -28,6 +29,16 @@ export class NewComponent implements OnInit {
     })};
 
 
+    optionCount() {
+        const questions = Array.from(this.service.formData.questions)
+        console.log(questions);
+        questions.forEach(q => {
+          console.log(q.options.length);
+          if (q.options.length <= 1) {
+            this.faultyQuestion = true;
+          }
+        })
 
-  }
+}
+}
 

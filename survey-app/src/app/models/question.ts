@@ -7,6 +7,7 @@ export class Question {
   surveyId: string;
   options: Option[] = [];
   mostAnsweredOp: string;
+  hasOption: boolean;
 
   constructor(id: string, surveyId: string, text: string, mostAnsweredOp: string) {
     this.id = id;
@@ -18,6 +19,7 @@ export class Question {
   addOption(){
 
     this.options.push(new Option(this.genOptionId(),this.id,"",false,0));
+    this.hasOption = true;
   }
 
   genOptionId() {

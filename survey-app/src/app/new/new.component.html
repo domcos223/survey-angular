@@ -36,10 +36,11 @@
         <div class="card" id="question-card" *ngFor="let question of service.formData.questions; let i = index">
           <div class="form-group">
             <div class="mb-3">
-              <input class="col-6 form-control"  placeholder="Question {{i+1}}" id="{{question.id}}" name="{{question.id}}" #Question{{i+1}}="ngModel"  [(ngModel)]="question.text" required/>
+              <input class="col-6 form-control"  placeholder="Question {{i+1}}" id="{{question.id}}" name="{{question.id}}" #Question{{i+1}}="ngModel"  [(ngModel)]="question.text"
+              required/>
             </div>
             <div *ngFor="let option of question.options; let j = index">
-              <input class="form-control" placeholder="Option {{j+1}}"  #option{{j+1}}="ngModel" name="{{option.id}}"  [(ngModel)]="option.text"  required/>
+              <input class="form-control" placeholder="Option {{j+1}}"  #option{{j+1}}="ngModel" name="{{option.id}}"  [(ngModel)]="option.text" required/>
             </div>
             <div>
               <button id="addOptBtn" type="button" class="btn btn-success" (click)="question.addOption()">Add option</button>
@@ -55,13 +56,13 @@
         *ngIf="service.formData.hasQuestion == false"
       >*Click the buttons to add your questions & answers!</div>
           <div>
-        <br>
+          <br>
           <button
           id="savebtn"
           #saveBtn
           type="submit"
           class="btn btn-success"
-          [disabled]="service.formData.hasQuestion == false || form.invalid"
+          [disabled]="service.formData.hasQuestion == false || form.invalid || service.formData.isValid() == false"
           >Submit</button>
         </div>
         <div

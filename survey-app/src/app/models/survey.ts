@@ -24,4 +24,13 @@ export class Survey {
     return this.id = uuidv4();
   }
 
+  isValid(){
+    for(let q of this.questions) {
+        if (q.options.length <= 1) {
+          return false;
+        }
+    }
+    return true;
+}
+
 }
