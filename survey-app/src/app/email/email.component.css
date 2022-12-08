@@ -28,3 +28,8 @@ textarea {
 #messageError {
   color: red
 }
+
+#btnHolder {
+  text-align: center
+}
+

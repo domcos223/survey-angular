@@ -11,3 +11,7 @@
 .card-text {
   margin: 5px 5px 5px 5px;
 }
+
+#buttons {
+  width: 200px;
+}

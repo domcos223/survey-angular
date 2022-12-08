@@ -8,14 +8,18 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let survey of surveyDashboard">
+            <tr *ngFor="let survey of surveyDashboard | slice: (page-1) * pageSize : page * pageSize">
                 <td>{{survey.name}}</td>
-                <td>{{survey.details}}</td>
-                <td>
+                <td >{{survey.details}}</td>
+                <td id="buttons">
                     <button class="btn btn-primary mx-3" routerLink="/fill/{{survey.id}}">Take survey</button>
                 </td>
             </tr>
         </tbody>
       </table>
+      <ngb-pagination
+      [(page)]="page"
+        [pageSize]="pageSize"
+          ></ngb-pagination>
 </div>
 

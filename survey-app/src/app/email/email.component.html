@@ -1,7 +1,7 @@
 <app-header></app-header>
 <div id="emailContainer" class="container card">
   <h2 id="title">Invite others to fill your survey!</h2>
-  <form #form="ngForm" (ngSubmit)="submitForm()">
+  <form #form="ngForm" (ngSubmit)="submitForm(form)">
     <div class="field">
       <label>Email*</label>
       <input
@@ -54,13 +54,13 @@
     class="help is-error"
     *ngIf="messageInput.invalid && messageInput.touched"
   >*Please type in your message.</div>
-    <div>
+    <div id="btnHolder">
       <button
         id="sendButton"
         type="submit"
-        class="btn btn-success"
+        class="btn btn-success btn-lg"
         [disabled]="form.invalid">
-        Send
+        Send Email
       </button>
     </div>
   </form>
