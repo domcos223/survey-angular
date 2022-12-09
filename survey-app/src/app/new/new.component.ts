@@ -11,7 +11,6 @@ import { SurveyService } from '../shared/new-survey.service';
 })
 export class NewComponent implements OnInit {
   public survey: Survey;
-  public faultyQuestion: boolean = false;
 
   constructor(public service: SurveyService , private router: Router ) {
     this.survey = new Survey();
@@ -22,6 +21,7 @@ export class NewComponent implements OnInit {
   onSubmit(form : NgForm) {
     this.service.postSurvey().subscribe( {
       complete: () => {
+        form.reset();
         this.router.navigate(['/surveys'])},
       error: error => {
         console.log(error);

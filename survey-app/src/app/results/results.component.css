@@ -1,3 +1,13 @@
 #answer {
   font-weight: bold;
 }
+
+.card {
+  padding-left: 10px;
+  padding-top: 10px;
+  margin-top: 10px;
+}
+
+.container {
+  margin-top: 20px;
+}

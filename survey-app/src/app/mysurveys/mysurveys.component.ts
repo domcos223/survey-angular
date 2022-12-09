@@ -9,6 +9,9 @@ import { SurveyService } from '../shared/new-survey.service';
 })
 export class MysurveysComponent implements OnInit {
   surveyDashboard: Survey[];
+  page : number = 1;
+  pageSize : number = 15;
+
   constructor(public surveyService : SurveyService) { }
 
   ngOnInit(): void {
