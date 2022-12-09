@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { NgbTypeaheadWindow } from '@ng-bootstrap/ng-bootstrap/typeahead/typeahead-window';
 import { Survey } from '../models/survey';
 import { SurveyService } from '../shared/new-survey.service';
-
 
 @Component({
   selector: 'app-dashboard',
