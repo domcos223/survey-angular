@@ -19,7 +19,7 @@ const routes: Routes = [
     {path: 'results/:id', component: ResultsComponent},
     {path: 'email/:id', component: EmailComponent},
   ]},
-
+  {path:'**', component: ErrorComponent}
 ];
 
 @NgModule({
